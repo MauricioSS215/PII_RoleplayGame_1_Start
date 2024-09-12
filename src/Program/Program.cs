@@ -10,8 +10,8 @@ public class Program
         ItemDeDefensa escudo = new ItemDeDefensa("Escudo de Hierro", 30);
 
         // Crear personaje con los ítems
-        Personaje hero = new Personaje("Meliodas", espada, escudo,100);
-        Personaje enemigo = new Personaje("Evil", new ItemDeAtaque("Hacha", 40), new ItemDeDefensa("Escudo de madera", 20),80);
+        Personaje hero = new Caballero("Meliodas", espada, escudo,100,50);
+        Personaje enemigo = new Caballero("Evil", new ItemDeAtaque("Hacha", 40), new ItemDeDefensa("Escudo de madera", 20),80,50);
         //Se muestran las dos formas de inicializar los items
         
         hero.GetAttackValue();
