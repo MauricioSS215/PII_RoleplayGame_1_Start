@@ -10,7 +10,7 @@ public class Caballero : Personaje
     }
 }
 
-public override void Atacar()
-{
-    Console.WriteLine($"{Nombre} ataca con su {Arma}.");
-}
+//public override void Atacar()
+//{
+    //Console.WriteLine($"{Nombre} ataca con su {Arma}.");
+//}
