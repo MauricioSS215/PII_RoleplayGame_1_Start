@@ -20,10 +20,13 @@ public class Program
         {
             Console.WriteLine(hechizo.Nombre);
         }
-        Console.WriteLine($"El mago {MagoB.Nombre} usó el hechizo {MagoB.UsarHechizo(Rayo, LibroH)}");
-        Console.WriteLine($"El mago {MagoE.Nombre} usó el hechizo {MagoE.UsarHechizo(Descarga, LibroH)}");
+        Console.WriteLine($"¿El mago {MagoB.Nombre} tiene el hechizo {Rayo.Nombre}? {MagoB.VerificarHechizo(Rayo, LibroH)}");
+        Console.WriteLine($"¿El mago {MagoE.Nombre} tiene el hechizo {Descarga.Nombre}? {MagoE.VerificarHechizo(Descarga, LibroH)}");
         Console.WriteLine($"La vida actual del mago {MagoE.Nombre} es de {MagoE.VidaActual}");
-        MagoB.Atacar(LibroH, MagoE, Descarga);
+        MagoB.UsarHechizo(LibroH, MagoE, Rayo);
         Console.WriteLine($"La vida actual del mago {MagoE.Nombre} es de {MagoE.VidaActual}");
+        MagoB.UsarHechizo(LibroH, MagoE, Curacion);
+        Console.WriteLine($"La vida actual del mago {MagoE.Nombre} es de {MagoE.VidaActual}");
+        Console.WriteLine(MagoE.GetAttackValue());
     }
 }

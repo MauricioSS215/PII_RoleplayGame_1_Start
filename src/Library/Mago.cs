@@ -10,25 +10,25 @@ public class Mago : Personaje
     {
         Librohechizo = librohechizo;
     }
-    public string UsarHechizo(Hechizo H, LibroHechizo Libro)
+    public bool VerificarHechizo(Hechizo H, LibroHechizo Libro)
     {
         foreach (Hechizo i in Libro)
         {
             if (i.Equals(H))
             {
-                return i.Nombre; 
+                return true; 
             }
         }
-
-        return null;
+        return false;
     }
-    public void Atacar(LibroHechizo Libro, Mago MagoR, Hechizo H)
+    public void UsarHechizo(LibroHechizo Libro, Personaje personaje, Hechizo H)
     {
         foreach (Hechizo i in Libro)
         {
             if (i.Equals(H))
             {
-                MagoR.VidaActual -= H.Ataque;
+                personaje.VidaActual -= H.Ataque;
+                personaje.VidaActual += H.Defensa;
             }
         }
     }
