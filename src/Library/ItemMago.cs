@@ -13,35 +13,6 @@ public class Hechizo : Item
     }
     
 }
-
-public class LibroHechizo : Item, IEnumerable<Hechizo>
-{
-    public List<Hechizo> Libro = new List<Hechizo>();
-
-    public LibroHechizo(string nombre, double Ataque, double Defensa):base(nombre, Ataque, Defensa)
-    {
-        this.Libro = new List<Hechizo>();
-    }
-
-    public void AddHechizos(Hechizo hechizo)
-    {
-        if (!Libro.Contains(hechizo))
-        {
-            Libro.Add(hechizo);
-        }
-    }
-    public IEnumerator<Hechizo> GetEnumerator()
-    {
-        return Libro.GetEnumerator();
-    }
-
-    // Implementar GetEnumerator para IEnumerable (requerido por la interfaz)
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return GetEnumerator();
-    }
-}
-
 public class Baston : Item
 {
     public Baston(string nombre, double Ataque, double Defensa) : base(nombre, Ataque, Defensa)
@@ -49,9 +20,9 @@ public class Baston : Item
         
     }
 
-    public void UsarBaston(LibroHechizo libro)
+    public void UsarBaston()
     {
-        foreach (Hechizo i in libro)
+        foreach (Hechizo i in Items)
         {
             i.Ataque*=1.5;
         }
