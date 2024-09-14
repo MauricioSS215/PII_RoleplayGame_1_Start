@@ -41,3 +41,19 @@ public class LibroHechizo : Item, IEnumerable<Hechizo>
         return GetEnumerator();
     }
 }
+
+public class Baston : Item
+{
+    public Baston(string nombre, double Ataque, double Defensa) : base(nombre, Ataque, Defensa)
+    {
+        
+    }
+
+    public void UsarBaston(LibroHechizo libro)
+    {
+        foreach (Hechizo i in libro)
+        {
+            i.Ataque*=1.5;
+        }
+    }
+}

@@ -32,6 +32,10 @@ public class Mago : Personaje
             }
         }
     }
+    public void (LibroHechizo nuevolibro)
+    {
+        Librohechizo = nuevolibro;
+    }
 }
 
     
