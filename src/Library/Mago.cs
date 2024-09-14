@@ -6,7 +6,7 @@ public class Mago : Personaje
 {
     public LibroHechizo Librohechizo { get; set; }
 
-    public Mago(string nombre, ItemDeAtaque arma, ItemDeDefensa escudo, double vida, LibroHechizo librohechizo) : base(nombre, arma, escudo, vida)
+    public Mago(string nombre, double vida, LibroHechizo librohechizo) : base(nombre, new List<Item>(), vida)
     {
         Librohechizo = librohechizo;
     }

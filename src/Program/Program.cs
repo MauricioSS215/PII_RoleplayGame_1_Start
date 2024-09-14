@@ -3,44 +3,32 @@ using System;
 
 public class Program 
 {
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
-        // Crear ítems de ataque y defensa
-        var arma1 = new ItemDeAtaque("Espada", 25);
-        var escudo1 = new ItemDeDefensa("Escudo de hierro", 20);
-        var armadura1 = new ItemDeDefensa("Armadura de placas", 15);
-        var arma2 = new ItemDeAtaque("Daga Oscura", 15);
-        var escudo2 = new ItemDeDefensa("Escudo encantado", 15);
-        var armadura2 = new ItemDeDefensa("Armadura del Norte", 30);
-        var arco1 = new Arco("Flechas de hielo",10,15);
-        
-        var itemsArtoria = new List<Item> { arma1, escudo1, armadura1 };
-        var itemsEvil = new List<Item> { arma2, escudo2, armadura2 };
-        var itemsElfo = new List<Item> { arco1, escudo2, armadura2 };
-        var hero = new Caballero("Artoria", itemsArtoria, 100);
-        var enemigo = new Caballero("Evil", itemsEvil, 100);
-        var elfo  = new Elfo("Legolas", itemsElfo, 120, arco1);
-        
-        //Mostramos el ataque y la defensa total del nuestro caballero Artoria.
-        hero.GetAttackValue();
-        hero.GetDefValue(); 
-        Console.WriteLine("");
-
-        // Muestra las estadisiticas actuales de los personajes
-        hero.GetStats();
-        enemigo.GetStats();
-        elfo.GetStats();
-        //Aplicamos metodos para mostrar su funcionamiento
-        hero.DealDamage(enemigo);  // Caballero ataca a enemigo
-        elfo.DealDamage(enemigo);
-        elfo.DealDamage(enemigo); // Elfo ataca con arco 2 veces, la flechas bajar en 2 
-        //Mostramos nuevamente el status actual del enemigo, deberia tener menos vida
-        enemigo.GetStats();
-        //Por ultimo llamamos al metodo HealDamage y luego mostramos sus stats para ver que realmente se curo
-        enemigo.HealDamage();
-        enemigo.GetStats();
-        
-
+        LibroHechizo LibroH = new LibroHechizo("Libro1", 0, 0);
+        Mago MagoB = new Mago("MagoB", new ItemDeAtaque("espada?", 10), new ItemDeDefensa("escudo?", 10), 100, LibroH);
+        Mago MagoE = new Mago("MagoE", new ItemDeAtaque("espada?", 10), new ItemDeDefensa("escudo?", 10), 150, LibroH);
+        Hechizo Descarga = new Hechizo("Descarga", 10, 0, "Electrico");
+        Hechizo Rayo = new Hechizo("Rayo", 100, 0, "Eléctrico");
+        Hechizo Curacion = new Hechizo("Curacion", 0, 50, "Curar");
+        LibroH.AddHechizos(Rayo);
+        LibroH.AddHechizos(Curacion);
+        LibroH.AddHechizos((Descarga));
+        Console.WriteLine($"La vida del mago es de {MagoB.VidaActual}");
+        Console.WriteLine($"Los hechizos son {Rayo.Nombre}, {Curacion.Nombre}");
+        foreach (Hechizo hechizo in LibroH)
+        {
+            Console.WriteLine(hechizo.Nombre);
+        }
+        Console.WriteLine($"¿El mago {MagoB.Nombre} tiene el hechizo {Rayo.Nombre}? {MagoB.VerificarHechizo(Rayo, LibroH)}");
+        Console.WriteLine($"¿El mago {MagoE.Nombre} tiene el hechizo {Descarga.Nombre}? {MagoE.VerificarHechizo(Descarga, LibroH)}");
+        Console.WriteLine($"La vida actual del mago {MagoE.Nombre} es de {MagoE.VidaActual}");
+        MagoB.UsarHechizo(LibroH, MagoE, Rayo);
+        Console.WriteLine($"La vida actual del mago {MagoE.Nombre} es de {MagoE.VidaActual}");
+        MagoB.UsarHechizo(LibroH, MagoE, Curacion);
+        Console.WriteLine($"La vida actual del mago {MagoE.Nombre} es de {MagoE.VidaActual}");
+        Console.WriteLine(MagoE.GetAttackValue());
     }
+
 }
 
