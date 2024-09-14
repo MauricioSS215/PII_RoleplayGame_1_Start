@@ -1,70 +1,37 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+namespace Program;
 
-namespace Program
+public class Arco : ItemDeAtaque
 {
-    public class Flecha
-    {
-        public string Tipo { get; set; } // "Fuego" o "Hielo"
+    public int FlechasIniciales { get; set; }
+    public int FlechasDisponibles { get; set; }
 
-        public Flecha(string tipo)
-        {
-            Tipo = tipo;
-        }
+    public Arco(string nombre, double ataque, int flechasIniciales) 
+        : base(nombre, ataque)
+    {
+        FlechasIniciales = flechasIniciales;
+        FlechasDisponibles = flechasIniciales;
     }
 
-    public class Arco : ItemDeAtaque
+    // Disminuir el número de flechas disponibles
+    public void DisminuirFlechas()
     {
-        public List<Flecha> Flechas { get; set; } = new List<Flecha>();
-
-        public Arco(string nombre, double ataque) : base(nombre, ataque)
+        if (FlechasDisponibles > 0)
         {
+            FlechasDisponibles--;
         }
-
-        public void AgregarFlecha(Flecha flecha)
+        else
         {
-            if (!Flechas.Contains(flecha))
-            {
-                Flechas.Add(flecha);
-            }
-        }
-
-        public void Atacar(string tipoFlecha)
-        {
-            var flecha = Flechas.Find(f => f.Tipo.Equals(tipoFlecha, StringComparison.OrdinalIgnoreCase));
-
-            if (flecha != null)
-            {
-                Console.WriteLine($"Disparando flecha de {tipoFlecha} con el arco!");
-            }
-            else
-            {
-                Console.WriteLine($"No hay flechas de tipo {tipoFlecha} en el arco.");
-            }
+            Console.WriteLine("No quedan flechas disponibles.");
         }
     }
+}
 
-    public class Elfo : Item
+public class CapaElfo : ItemDeDefensa
+{
+    public double BonusDefensa { get; set; }
+    public CapaElfo(string nombre, double defensa, double bonusDefensa)
+        : base(nombre, defensa)
     {
-        public Arco Arco { get; set; }
-
-        public Elfo(string nombre, double ataque, double defensa, Arco arco) : base(nombre, ataque, defensa)
-        {
-            Arco = arco;
-        }
-
-        public void AtacarConFlecha()
-        {
-            if (Arco.FlechasDisponibles > 0)
-            {
-                Arco.DisminuirFlechas();
-                Console.WriteLine("¡Elfo ataca con el arco!");
-            }
-            else
-            {
-                Console.WriteLine("No hay flechas disponibles para atacar.");
-            }
-        }
+        BonusDefensa = bonusDefensa;
     }
 }

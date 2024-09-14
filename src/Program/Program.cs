@@ -13,13 +13,15 @@ public class Program
         var escudo2 = new ItemDeDefensa("Escudo encantado", 15);
         var armadura2 = new ItemDeDefensa("Armadura del Norte", 30);
         var arco1 = new Arco("Flechas de hielo",10,15);
+        var capaElfo = new CapaElfo("Capa magica", 10, 30);
         
         var itemsArtoria = new List<Item> { arma1, escudo1, armadura1 };
         var itemsEvil = new List<Item> { arma2, escudo2, armadura2 };
-        var itemsElfo = new List<Item> { arco1, escudo2, armadura2 };
+        var itemsElfo = new List<Item> { arco1, escudo2, armadura2, capaElfo };
         var hero = new Caballero("Artoria", itemsArtoria, 100);
         var enemigo = new Caballero("Evil", itemsEvil, 100);
         var elfo  = new Elfo("Legolas", itemsElfo, 120, arco1);
+        
         
         //Mostramos el ataque y la defensa total del nuestro caballero Artoria.
         hero.GetAttackValue();
