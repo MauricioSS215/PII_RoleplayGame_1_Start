@@ -1,18 +1,22 @@
+using System.ComponentModel;
 using System.Runtime.InteropServices.Marshalling;
 
 namespace Program;
 
 public class Mago : Personaje 
-{
-    public LibroHechizo Librohechizo { get; set; }
-
-    public Mago(string nombre, double vida, LibroHechizo librohechizo) : base(nombre, new List<Item>(), vida)
+{ 
+    public Mago(string nombre, double vida, List<Item> listaItems) : base(nombre, listaItems, vida)
     {
-        Librohechizo = librohechizo;
+        
     }
-    public bool VerificarHechizo(Hechizo H, LibroHechizo Libro)
+
+    public void AddHechizo(Hechizo hechizo)
     {
-        foreach (Hechizo i in Libro)
+        Items.Add(hechizo);
+    }
+    public bool VerificarHechizo(Hechizo H)
+    {
+        foreach (Hechizo i in Items)
         {
             if (i.Equals(H))
             {
@@ -21,9 +25,9 @@ public class Mago : Personaje
         }
         return false;
     }
-    public void UsarHechizo(LibroHechizo Libro, Personaje personaje, Hechizo H)
+    public void UsarHechizo(Personaje personaje, Hechizo H)
     {
-        foreach (Hechizo i in Libro)
+        foreach (Hechizo i in Items)
         {
             if (i.Equals(H))
             {
@@ -31,10 +35,6 @@ public class Mago : Personaje
                 personaje.VidaActual += H.Defensa;
             }
         }
-    }
-    public void (LibroHechizo nuevolibro)
-    {
-        Librohechizo = nuevolibro;
     }
 }
 
