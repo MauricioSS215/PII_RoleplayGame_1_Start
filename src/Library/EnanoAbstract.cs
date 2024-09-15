@@ -1,4 +1,6 @@
 ﻿namespace Program;
+using System;
+using System.Collections.Generic;
 public abstract class EnanoPersonaje
 {
     public string Nombre { get; set; }
@@ -76,7 +78,7 @@ public abstract class EnanoPersonaje
 }
 
 
-public partial class Enano : EnanoPersonaje
+public partial class Enano
 {
     public override double DealDamage(Personaje enemigo)
     {

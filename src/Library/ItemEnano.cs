@@ -1,7 +1,5 @@
 ﻿namespace Program;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 
 // Clase que sera usada como base para los Items
 //La letra del ejercicio pedia que cada personaje tuviera al menos 2 items
