@@ -19,12 +19,5 @@ public class Baston : Item
     {
         
     }
-
-    public void UsarBaston()
-    {
-        foreach (Hechizo i in Items)
-        {
-            i.Ataque*=1.5;
-        }
-    }
+    
 }

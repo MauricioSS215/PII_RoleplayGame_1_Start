@@ -5,10 +5,10 @@ namespace Program;
 
 public class Mago : Personaje 
 { 
-    public Baston Baston { get; set; }
-    public Mago(string nombre, double vida, List<Item> listaItems, Baston baston=null) : base(nombre, listaItems, vida)
-    {
-        Baston = baston;
+    public Baston? Baston { get; set; }
+    public Mago(string nombre, double vida, List<Item> listaItems) : base(nombre, listaItems, vida)
+    { 
+        
     }
 
     public void AddHechizo(Hechizo hechizo)
@@ -21,9 +21,8 @@ public class Mago : Personaje
     }
     public bool VerificarHechizo(Hechizo H)
     {
-        foreach (Item i in Items)
+        foreach (Hechizo i in Items)
         {
-            if(i is Hechizo)
                 if (i.Equals(H))
                 {
                     return true;
@@ -49,6 +48,18 @@ public class Mago : Personaje
         foreach (Hechizo hechizo in Items)
         {
             Console.WriteLine(hechizo.Nombre);
+        }
+    }
+
+    public void BastonUso()
+    {
+        if (Baston != null)
+        {
+            foreach (Hechizo i in Items)
+            {
+                i.Ataque *= 1.5;
+                i.Defensa *= 1.5;
+            }
         }
     }
 }
