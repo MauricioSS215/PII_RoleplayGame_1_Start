@@ -98,7 +98,7 @@ public partial class Enano
                     double damage = GetAttackValue();  // Obtener el valor de ataque del enano
                     enemigo.VidaActual -= damage; // Ignora la defensa
 
-                    Console.WriteLine($"{Nombre} ha disparado una bala y acertado a {enemigo.Nombre}, causando {damage} de daño.");
+                    Console.WriteLine($"{Nombre} ha disparado una bala y acertado en {enemigo.Nombre}");
                 }
                 else
                 {
@@ -107,8 +107,8 @@ public partial class Enano
                 PistolaDePerno.DisminuirBalas(); // Disminuir balas tras cada disparo
             }
 
-            Console.WriteLine($"Se dispararon {balasDisparadas}, de las cuales {balasAcertadas} acertaron a {enemigo.Nombre}.");
-            Console.WriteLine($"Balas restantes: {PistolaDePerno.BalasDisponibles}");
+            Console.WriteLine($"Se dispararon {balasDisparadas}, de las cuales {balasAcertadas} acertaron en {enemigo.Nombre}.");
+            Console.WriteLine($"Municion restantes: {PistolaDePerno.BalasDisponibles}");
         }
         else if (!usandoPistola && HachaEnana != null)
         {
@@ -133,7 +133,7 @@ public partial class Enano
         {
             Console.WriteLine($"{item.Nombre} - Ataque: {item.Ataque}, Defensa: {item.Defensa}");
         }
-        Console.WriteLine($"Balas restantes en la pistola de perno: {PistolaDePerno.BalasDisponibles}");
+        Console.WriteLine($"Municion restante: {PistolaDePerno.BalasDisponibles}");
         Console.WriteLine("");
     }
 }
