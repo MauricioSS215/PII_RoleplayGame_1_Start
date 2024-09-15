@@ -15,24 +15,16 @@ public class Program
         MagoB.AddHechizo(Descarga);
         MagoB.AddHechizo(Rayo);
         MagoB.AddHechizo(Curacion);
+        Lista2.Add(Descarga);
         Lista2.Add(Rayo);
-        Console.WriteLine($"La vida del mago es de {MagoB.VidaActual}");
-        Console.WriteLine($"Los hechizos son {Rayo.Nombre}, {Curacion.Nombre}");
-        Console.WriteLine($"¿El mago {MagoB.Nombre} tiene el hechizo {Rayo.Nombre}? {MagoB.VerificarHechizo(Rayo)}");
-        Console.WriteLine($"La vida actual del mago {MagoE.Nombre} es de {MagoE.VidaActual}");
-        MagoB.HechizosEnLibro();
-        //MagoB.CambiarLibro(Lista2);
-        Console.WriteLine($"{MagoB.VerificarHechizo(Descarga)}");
-        MagoB.HechizosEnLibro();
-        MagoB.UsarHechizo(MagoE, Rayo);
-        Console.WriteLine($"La vida del magoE es: {MagoE.VidaActual}");
+        Lista2.Add(Curacion);
         MagoB.Baston = baston1;
-        MagoB.BastonUso();
-        foreach (Hechizo i in MagoB.Items)
+        foreach (Hechizo i in MagoE.Items)
         {
             Console.WriteLine($"{i.Ataque}, {i.Defensa}");
         }
-        foreach (Hechizo i in MagoE.Items)
+        
+        foreach (Hechizo i in MagoB.Items)
         {
             Console.WriteLine($"{i.Ataque}, {i.Defensa}");
         }

@@ -3,9 +3,33 @@ using System.Runtime.InteropServices.Marshalling;
 
 namespace Program;
 
-public class Mago : Personaje 
-{ 
-    public Baston? Baston { get; set; }
+public class Mago : Personaje
+{
+    private Baston? baston;
+    public Baston? Baston
+    {
+        get { return baston; }
+        set
+        {
+            if (value != null)
+            {
+                foreach (Hechizo i in Items)
+                {
+                    i.Ataque *= 1.5;
+                    i.Defensa *= 1.5;
+                }
+            }
+            else if (baston != null)
+            {
+                foreach (Hechizo i in Items)
+                {
+                    i.Ataque /= 1.5;
+                    i.Defensa /= 1.5;
+                }
+            }
+            baston = value;
+        }
+    }
     public Mago(string nombre, double vida, List<Item> listaItems) : base(nombre, listaItems, vida)
     { 
         
@@ -14,6 +38,11 @@ public class Mago : Personaje
     public void AddHechizo(Hechizo hechizo)
     {
         Items.Add(hechizo);
+        if (baston != null)
+        {
+            hechizo.Ataque *= 1.5;
+            hechizo.Defensa*=1.5;
+        }
     }
     public void CambiarLibro (List<Item> ListaNueva)
     {
@@ -51,16 +80,9 @@ public class Mago : Personaje
         }
     }
 
-    public void BastonUso()
+    public void CambiarBaston(Baston Bastonnuevo)
     {
-        if (Baston != null)
-        {
-            foreach (Hechizo i in Items)
-            {
-                i.Ataque *= 1.5;
-                i.Defensa *= 1.5;
-            }
-        }
+        baston = Bastonnuevo;
     }
 }
 
