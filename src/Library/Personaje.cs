@@ -1,4 +1,7 @@
 namespace Program;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 
 // Ejemplo de uso en un personaje
 public abstract class Personaje
