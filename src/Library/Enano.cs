@@ -22,7 +22,7 @@ public partial class Enano : EnanoPersonaje
     public void AlternarArma()
     {
         usandoPistola = !usandoPistola; //cambia de arma
-        string armaActual = usandoPistola ? "Pistola de perno" : "HachaEnana";
+        string armaActual = usandoPistola ? "Pistola de perno" : "Hacha doble pesada";
         Console.WriteLine($"{Nombre} ha cambiado su arma a {armaActual}");
     }
 }

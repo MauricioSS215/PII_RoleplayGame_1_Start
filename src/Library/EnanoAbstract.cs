@@ -98,7 +98,7 @@ public partial class Enano
                     double damage = GetAttackValue();  // Obtener el valor de ataque del enano
                     enemigo.VidaActual -= damage; // Ignora la defensa
 
-                    Console.WriteLine($"{Nombre} ha disparado una bala y acertado en {enemigo.Nombre}");
+                    Console.WriteLine($"{Nombre} ha disparado una bala y acertado en {enemigo.Nombre}, haciendo {damage - enemigo.GetDefValue()} de daño");
                 }
                 else
                 {

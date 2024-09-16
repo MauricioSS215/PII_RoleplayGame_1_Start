@@ -41,8 +41,11 @@ public class Program
         hero.DealDamage(enemigo);  // Caballero ataca a enemigo
         elfo.DealDamage(enemigo);
         elfo.DealDamage(enemigo); // Elfo ataca con arco 2 veces, la flechas bajar en 2 
+        
         enano.AlternarArma();//enano alterna el arma entre la pistola de perno o el hacha
         enano.DealDamage(enemigo);// enano ataca a un enemigo
+        enano.AlternarArma();
+        enano.DealDamage(enemigo);
         
         //Mostramos nuevamente el status actual del enemigo, deberia tener menos vida
         enemigo.GetStats();
