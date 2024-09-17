@@ -44,8 +44,8 @@ public class Program
         
         enano.AlternarArma();//enano alterna el arma entre la pistola de perno o el hacha
         enano.DealDamage(enemigo);// enano ataca a un enemigo
-        enano.AlternarArma();
-        enano.DealDamage(enemigo);
+        enano.AlternarArma();//cambia de arma para atacar con el hacha/pistola
+        enano.DealDamage(enemigo);//ataca con el
         
         //Mostramos nuevamente el status actual del enemigo, deberia tener menos vida
         enemigo.GetStats();
