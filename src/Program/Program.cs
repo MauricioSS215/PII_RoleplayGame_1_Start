@@ -5,7 +5,7 @@ public class Program
 {
     static void Main(string[] args)
     {
-        // Crear ítems de ataque y defensa
+        // Crear ítems de ataque y defensa{
         var pistolaDePerno1 = new PistolaDePerno("Pistola de Perno de 3 tiros",ataque:5,BalasIniciales:60);
         var hachaEnano = new HachaEnana(nombre: "Hacha doble pesada", ataque: 40,defensa:0);//enano
         var armaduraEnano = new ItemDeDefensaEnano(nombre: "Armadura de acero enana", defensa: 30);//enano

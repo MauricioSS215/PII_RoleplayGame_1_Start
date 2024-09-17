@@ -47,19 +47,6 @@ public class HachaEnana : ItemDeAtaqueEnano
     }
 }
 
-public class Cerveza : ItemEnano
-{
-    public int AumentoDaño { get; set; } //ataque aumentado
-    public int Defensareducida { get; set; } //defensa reducida
-
-    public Cerveza(string nombre,double ataque ,double defensa) : base(nombre,ataque , defensa )
-    {
-        Nombre = "Cerveza enana";
-        AumentoDaño = 50;
-        Defensareducida = 25;
-    }
-}
-
 public class PistolaDePerno : ItemDeAtaqueEnano
 {
     public int BalasIniciales { get; set; }
