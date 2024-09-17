@@ -1,4 +1,4 @@
-﻿namespace Program;
+namespace Program;
 using System;
 
 public class Program 
@@ -18,6 +18,24 @@ public class Program
         var armadura2 = new ItemDeDefensa("Armadura del Norte", 30);
         var arco1 = new Arco("Flechas de hielo",10,15);
         var capaElfo = new CapaElfo("Capa magica", 10, 30);
+        Baston baston1 = new Baston("Baston1", 0, 0);
+        List<Item> Lista2 = new List<Item>();
+        Mago MagoB = new Mago("MagoB", 100, new List<Item>());
+        Mago MagoE = new Mago("MagoE", 150, Lista2);
+        Hechizo Descarga = new Hechizo("Descarga", 10, 0, "Eléctrico");
+        Hechizo Rayo = new Hechizo("Rayo", 100, 0, "Eléctrico");
+        Hechizo Curacion = new Hechizo("Curacion", 0, 50, "Curar");
+        MagoB.AddHechizo(Descarga);
+        MagoB.AddHechizo(Rayo);
+        MagoB.AddHechizo(Curacion);
+        Lista2.Add(Descarga);
+        Lista2.Add(Rayo);
+        Lista2.Add(Curacion);
+        MagoB.Baston = baston1;
+        foreach (Hechizo i in MagoE.Items)
+        {
+            Console.WriteLine($"{i.Ataque}, {i.Defensa}");
+        }
         
         var itemsEnano = new List<ItemEnano> { hachaEnano, armaduraEnano };
         var enano = new Enano(nombre: "Karaz Ankor", itemsEnano, vida: 250, pistolaDePerno1,hachaEnano);//enano
@@ -33,6 +51,13 @@ public class Program
         hero.GetAttackValue();
         hero.GetDefValue(); 
         Console.WriteLine("");
+        foreach (Hechizo i in MagoB.Items)
+        {
+            Console.WriteLine($"{i.Ataque}, {i.Defensa}");
+        }
+    }
+
+}
 
         // Muestra las estadisiticas actuales de los personajes
         hero.GetStats();
@@ -56,6 +81,3 @@ public class Program
         enemigo.HealDamage();
         enemigo.GetStats();
         
-
-    }
-}
